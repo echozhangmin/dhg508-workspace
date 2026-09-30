@@ -1,5 +1,10 @@
 # 天国掌故 / Tianwang-Lookup — 太平天国开国六王小库
 
+> **Week 4 起已被取代。** 本目录保留 week-3 的单表六库作为历史记录。
+> 现行数据库是 `../data/*.json`（8 表、300+ 行、6 组外键），由
+> `../code/build_db.py` 构建，见 `../research/`，并装载进
+> `.opencode/skill/tianwang-lookup/taiping.db`。下面的 `SKILL.md` 仅供对照。
+
 DHG508 week-3：来源 → 数据 → 小库 → 一个 skill。
 
 ## 文件

@@ -1,0 +1,167 @@
+[
+  {
+    "conv_id": 1,
+    "raw_date": "道光三十年十二月初十日",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1851-01-11",
+    "to_calendar": "gregorian",
+    "method": "sxtwl 2.0.7 (＝lunar-python 1.4.8 cross-check)",
+    "doc_id": "wiki-jintianqiyi",
+    "locator": "经过",
+    "note": "金田起义；公历1851-01-11。"
+  },
+  {
+    "conv_id": 2,
+    "raw_date": "咸丰六年八月初四日",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1856-09-02",
+    "to_calendar": "gregorian",
+    "method": "sxtwl 2.0.7 (＝lunar-python 1.4.8 cross-check)",
+    "doc_id": "wiki-yangxiuqing",
+    "locator": "首段",
+    "note": "杨秀清在天京事变中被杀之日。"
+  },
+  {
+    "conv_id": 3,
+    "raw_date": "同治三年四月二十七日",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1864-06-01",
+    "to_calendar": "gregorian",
+    "method": "sxtwl 2.0.7 (＝lunar-python 1.4.8 cross-check)",
+    "doc_id": "wiki-hongxiuquan",
+    "locator": "首段",
+    "note": "洪秀全病逝之日。"
+  },
+  {
+    "conv_id": 4,
+    "raw_date": "同治三年六月十六日",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1864-07-19",
+    "to_calendar": "gregorian",
+    "method": "sxtwl 2.0.7 (＝lunar-python 1.4.8 cross-check)",
+    "doc_id": "en-taiping-rebellion",
+    "locator": "lead",
+    "note": "天京陷落之日。"
+  },
+  {
+    "conv_id": 5,
+    "raw_date": "咸丰元年（1851年）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1851",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-yongan",
+    "locator": "经过",
+    "note": "清帝纪年：咸丰元年＝1851年。"
+  },
+  {
+    "conv_id": 6,
+    "raw_date": "道光三十年（1850年）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1850",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-jintianqiyi",
+    "locator": "经过",
+    "note": "清帝纪年：道光三十年＝1850年（其十二月已入公历1851）。"
+  },
+  {
+    "conv_id": 7,
+    "raw_date": "咸丰元年十二月（永安建制）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "",
+    "to_calendar": "gregorian",
+    "method": "not converted",
+    "doc_id": "wiki-yongan",
+    "locator": "经过",
+    "note": "通行系于1851年12月，但该农历月起于公历1852-01-21，纪年与公历不重合，不强行归一。"
+  },
+  {
+    "conv_id": 8,
+    "raw_date": "约1820年（一说1826年）",
+    "from_calendar": "gregorian",
+    "norm_date": "1820?",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-xiaochaogui",
+    "locator": "首段",
+    "note": "萧朝贵生年两说，保留存疑标记。"
+  },
+  {
+    "conv_id": 9,
+    "raw_date": "1823年或1826年",
+    "from_calendar": "gregorian",
+    "norm_date": "1823?",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-weichanghui",
+    "locator": "首段",
+    "note": "韦昌辉生年两说，保留存疑标记。"
+  },
+  {
+    "conv_id": 10,
+    "raw_date": "1831年？",
+    "from_calendar": "gregorian",
+    "norm_date": "1831?",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-zengshuiyuan",
+    "locator": "首段",
+    "note": "曾水源生年原文存疑。"
+  },
+  {
+    "conv_id": 11,
+    "raw_date": "1848年",
+    "from_calendar": "gregorian",
+    "norm_date": "1848",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-xiaochaogui",
+    "locator": "生平",
+    "note": "天父/天兄下凡之年（本条未给月日）。"
+  },
+  {
+    "conv_id": 12,
+    "raw_date": "道光二十三年（1843年）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1843",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-jintianqiyi",
+    "locator": "经过",
+    "note": "拜上帝会创立；原文并给年号与公历。"
+  },
+  {
+    "conv_id": 13,
+    "raw_date": "道光二十四年（1844年）春",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1844",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-jintianqiyi",
+    "locator": "经过",
+    "note": "紫荆山立会；原文并给年号与公历。"
+  },
+  {
+    "conv_id": 14,
+    "raw_date": "咸丰二年（1852年）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1852",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-wulantai",
+    "locator": "生平",
+    "note": "永安突围之年。"
+  },
+  {
+    "conv_id": 15,
+    "raw_date": "咸丰六年（1856年）",
+    "from_calendar": "lunar-qing",
+    "norm_date": "1856",
+    "to_calendar": "gregorian",
+    "method": "per source",
+    "doc_id": "wiki-tianjingshibian",
+    "locator": "首段",
+    "note": "天京事变之年。"
+  }
+]

@@ -1,40 +1,34 @@
 ---
 name: tianwang-lookup
-description: 输入太平天国一位天王/诸王的名字（洪秀全、杨秀清、萧朝贵、冯云山、韦昌辉、石达开），从 taiping-kings.db 查出称号、生卒、功绩、画像与出处。Use when the user asks about a Taiping Heavenly Kingdom king by name.
+description: 查询「天国掌故」关系型数据库（太平天国 1843–1874 的人物、封号、事件、地点、异名、日期换算），带出处作答。Use when the user asks about Taiping Heavenly Kingdom kings, generals, titles, events, places, dates, or their sources — by name in Chinese (洪秀全/石达开/天京事变…) or English.
 ---
 
-# 天国掌故 Tianwang-Lookup
+# 天国掌故 tianwang-lookup
 
-## 这个文件所在目录里有什么
+回答太平天国（约1843–1874）的问题。数据在本目录的关系型 SQLite 库
+`taiping.db`（8 张表，317 行，6 组外键），不是凭记忆，也不是上网现查。
 
-- `taiping-kings.db` —— SQLite，表 `kings`，6 行：天王洪秀全、东王杨秀清、西王萧朝贵、
-  南王冯云山、北王韦昌辉、翼王石达开。
-  列：`id, title, name, honorific, full_title, birth, death, death_place,
-  achievement, source, portrait_url, portrait_note, note`。
+## 最短上手
 
-（`kings-db/` 副本里另有 `records.json` 与 `build_db.py`，用 `python3 build_db.py` 重建库。）
+- 库文件与本文件同目录：`taiping.db`。用 Python 标准库 `sqlite3` 自写小查询。
+- 先想清楚问的是哪张表，再写 SQL；跨表用主键连接（见 `references/queries.md`）。
+- **引用格式**：每条事实后写 `[表:主键]`，并给出处 `doc_id / locator`。
+  例：`石达开于1863年6月27日在成都受审后就义 [person:6]（wiki-shidakai/首段）`。
+- **查不到就说没有**：库里没有的人/事，直接答「库里没有」，不要用常识补；
+  若确需补充，必须明说「以下不是库里的内容」。
 
-## 怎么查
+## 细节按需读取（不要一次全读）
 
-用 Python 标准库 `sqlite3` 读库，自己写小脚本（机器上没有 python3 就先装）。
-不要装任何查询工具，不要凭记忆回答。
+| 需要什么 | 读哪个 |
+|---|---|
+| 每张表存什么、字段含义、行数 | `references/tables.md` |
+| 可直接改用的示例查询（含跨表） | `references/queries.md` |
+| 日期与人名的转换规则、已知陷阱 | `references/rules-dates-names.md` |
+| 引用与出处怎么写 | `references/citation.md` |
+| 没资料／跑题／错前提／要编引文时怎么办 | `references/corner-cases.md` |
 
-## 规矩
+## 要往库里加东西时
 
-1. 输入是一个名字（如「石达开」「杨秀清」「洪秀全」），用 `name` 匹配查出该行。
-   匹配不到就模糊搜一次，仍没有就走第 5 条。
-2. 按固定格式作答：
-   - **王号 · 姓名**（如「翼王 · 石达开」）
-   - 封号全称（含「五千岁」这类称号）
-   - 生年 / 卒年（含卒地）
-   - 主要功绩
-   - 画像：`portrait_url` + `portrait_note`
-   - 出处：`source`
-   - 备注：`note`
-3. 每条事实带该行的 `[id]`。
-4. 生卒有存疑处（萧朝贵 1820/1826、冯云山 1815/1822、韦昌辉 1823/1826）照实转述，
-   原文怎么写就怎么答，不替史料选一个。
-5. 画像一律照抄 `portrait_note`，标注「现代塑像 / 非当时真容」；不许把画像说成真容。
-6. 库里没有的名字（如「李秀成」「洪仁玕」「秦日纲」）就说「库里没有这个人」，
-   不用常识补；若一定要补，必须声明「这不是库里的内容」。
-7. 用用户提问的语言回答（中文问中文答）。
+本库只增不改。若问题缺资料、或用户想加入新人物/事件/出处，**转交给
+`taiping-ingest` 技能**（同目录同级）：它负责走管线、重建 `taiping.db`，
+再交回本技能作答。
