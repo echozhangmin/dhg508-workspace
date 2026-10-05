@@ -1,0 +1,597 @@
+{
+  "meta": {
+    "name": "家常菜谱库",
+    "note": "看图识菜谱 app 的种子数据，只增不改；用 code/build_db.py 重建 artifacts/caipu.db。"
+  },
+  "ingredient_aliases": {
+    "番茄": ["西红柿"],
+    "土豆": ["马铃薯"],
+    "猪肉": ["猪里脊", "五花肉", "猪肉末", "猪肉片", "肉片", "肉丝"],
+    "鸡肉": ["鸡胸肉", "鸡腿肉", "鸡丁", "鸡翅", "鸡中翅"],
+    "蒜": ["大蒜", "蒜瓣"],
+    "姜": ["生姜", "姜片"],
+    "葱": ["大葱", "小葱", "葱花"],
+    "鸡蛋": ["蛋", "鸡蛋液"],
+    "包菜": ["卷心菜", "圆白菜"],
+    "白菜": ["大白菜"],
+    "青菜": ["小白菜", "上海青"],
+    "花生": ["花生米"],
+    "牛肉": ["牛腩", "牛腱"],
+    "香菇": ["冬菇"],
+    "粉条": ["粉丝", "红薯粉"],
+    "木耳": ["黑木耳"],
+    "生抽": ["酱油"],
+    "豆腐": ["嫩豆腐", "北豆腐"]
+  },
+  "recipes": [
+    {
+      "name": "番茄炒蛋",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "酸甜下饭的国民家常菜。",
+      "ingredients": [
+        {"name": "番茄", "amount": "2 个", "essential": true},
+        {"name": "鸡蛋", "amount": "3 个", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false},
+        {"name": "糖", "amount": "1 小勺", "essential": false},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "番茄切块，葱切葱花；鸡蛋打散，加少许盐。",
+        "热锅倒油，油热后倒入蛋液，炒至刚凝固就盛出。",
+        "锅里留底油，下番茄块中火翻炒出汁，加 1 小勺糖和适量盐。",
+        "倒回鸡蛋翻炒均匀，撒葱花出锅。"
+      ]
+    },
+    {
+      "name": "青椒炒肉丝",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 20,
+      "summary": "青椒脆、肉丝嫩，配米饭一绝。",
+      "ingredients": [
+        {"name": "青椒", "amount": "2 个", "essential": true},
+        {"name": "猪肉", "amount": "200 克", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false},
+        {"name": "生抽", "amount": "1 勺", "essential": false},
+        {"name": "淀粉", "amount": "1 小勺", "essential": false}
+      ],
+      "steps": [
+        "猪肉切丝，加生抽和淀粉抓匀腌 10 分钟；青椒去籽切丝。",
+        "热锅多放一点油，下肉丝快速滑炒至变色盛出。",
+        "锅里下蒜末爆香，倒青椒丝大火炒 1 分钟。",
+        "倒回肉丝，加生抽和少许盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "蒜蓉炒青菜",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 10,
+      "summary": "十分钟上桌的清爽绿叶菜。",
+      "ingredients": [
+        {"name": "青菜", "amount": "400 克", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "青菜洗净沥干，蒜切末。",
+        "热锅倒油，下蒜末小火爆香。",
+        "转大火下青菜快炒，变软后加盐调味，立刻出锅。"
+      ]
+    },
+    {
+      "name": "酸辣土豆丝",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "酸辣爽脆，开胃解腻。",
+      "ingredients": [
+        {"name": "土豆", "amount": "2 个", "essential": true},
+        {"name": "青椒", "amount": "1 个", "essential": false},
+        {"name": "干辣椒", "amount": "3 个", "essential": true},
+        {"name": "醋", "amount": "2 勺", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false}
+      ],
+      "steps": [
+        "土豆去皮切细丝，清水冲洗两遍去淀粉，沥干；青椒切丝。",
+        "热锅倒油，下干辣椒和蒜末爆香。",
+        "倒入土豆丝大火快炒 2 分钟，沿锅边淋 1 勺醋。",
+        "加青椒丝、盐和剩下的醋，炒匀出锅。"
+      ]
+    },
+    {
+      "name": "红烧茄子",
+      "cuisine": "家常",
+      "difficulty": "中等",
+      "minutes": 25,
+      "summary": "软糯入味，浇饭神器。",
+      "ingredients": [
+        {"name": "茄子", "amount": "2 根", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": true},
+        {"name": "生抽", "amount": "2 勺", "essential": true},
+        {"name": "糖", "amount": "1 勺", "essential": false},
+        {"name": "淀粉", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "茄子切滚刀块，撒少许盐腌 10 分钟，挤干水分，拍薄薄一层淀粉。",
+        "热锅多倒油，下茄子中火煎至表面金黄盛出。",
+        "锅留底油爆香蒜末，加生抽、糖和半碗水煮开。",
+        "倒回茄子中火烧 3 分钟，收汁后出锅。"
+      ]
+    },
+    {
+      "name": "麻婆豆腐",
+      "cuisine": "川菜",
+      "difficulty": "中等",
+      "minutes": 20,
+      "summary": "麻辣鲜香，嫩豆腐配肉末。",
+      "ingredients": [
+        {"name": "豆腐", "amount": "1 块", "essential": true},
+        {"name": "猪肉末", "amount": "100 克", "essential": true},
+        {"name": "豆瓣酱", "amount": "1 勺", "essential": true},
+        {"name": "花椒", "amount": "适量", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false},
+        {"name": "葱", "amount": "1 根", "essential": false}
+      ],
+      "steps": [
+        "豆腐切块，放淡盐水里泡 5 分钟去豆腥。",
+        "热锅倒油，下肉末炒散至微焦，加豆瓣酱和蒜末炒出红油。",
+        "加一碗水煮开，下豆腐块，中火煮 3 分钟。",
+        "淋少许水淀粉勾芡，撒花椒粉和葱花出锅。"
+      ]
+    },
+    {
+      "name": "宫保鸡丁",
+      "cuisine": "川菜",
+      "difficulty": "中等",
+      "minutes": 25,
+      "summary": "甜酸微辣，花生点睛。",
+      "ingredients": [
+        {"name": "鸡肉", "amount": "300 克", "essential": true},
+        {"name": "花生", "amount": "50 克", "essential": true},
+        {"name": "干辣椒", "amount": "5 个", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false},
+        {"name": "生抽", "amount": "2 勺", "essential": false},
+        {"name": "醋", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "鸡肉切丁，加生抽和淀粉腌 10 分钟；花生小火炒香备用。",
+        "调汁：生抽、醋、糖、淀粉和水各适量，搅匀。",
+        "热锅倒油，下干辣椒和葱段爆香，倒鸡丁大火锅炒至变白。",
+        "倒入料汁翻匀，最后加花生米，收汁出锅。"
+      ]
+    },
+    {
+      "name": "番茄牛腩",
+      "cuisine": "家常",
+      "difficulty": "稍难",
+      "minutes": 90,
+      "summary": "炖到入口即化，汤汁拌饭。",
+      "ingredients": [
+        {"name": "番茄", "amount": "3 个", "essential": true},
+        {"name": "牛肉", "amount": "500 克", "essential": true},
+        {"name": "洋葱", "amount": "1 个", "essential": false},
+        {"name": "姜", "amount": "3 片", "essential": false},
+        {"name": "番茄酱", "amount": "2 勺", "essential": false}
+      ],
+      "steps": [
+        "牛腩切块，冷水下锅加姜片焯水，撇沫捞出。",
+        "番茄去皮切块，洋葱切块。",
+        "热锅倒油炒香洋葱，下番茄块和番茄酱炒出汁。",
+        "倒入牛腩，加没过食材的热水，小火炖 60 分钟。",
+        "加盐调味，大火收浓汤汁即可。"
+      ]
+    },
+    {
+      "name": "洋葱炒鸡蛋",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "洋葱清甜，鸡蛋嫩滑。",
+      "ingredients": [
+        {"name": "洋葱", "amount": "1 个", "essential": true},
+        {"name": "鸡蛋", "amount": "3 个", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "洋葱切丝，鸡蛋打散加少许盐。",
+        "热锅倒油，倒蛋液炒至半凝固盛出。",
+        "锅里下洋葱丝中火炒软出甜味。",
+        "倒回鸡蛋，加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "胡萝卜炒肉片",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 20,
+      "summary": "颜色好看，营养均衡。",
+      "ingredients": [
+        {"name": "胡萝卜", "amount": "2 根", "essential": true},
+        {"name": "猪肉", "amount": "200 克", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false},
+        {"name": "生抽", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "胡萝卜切薄片，猪肉切片用生抽腌 10 分钟。",
+        "热锅倒油，下肉片炒至变色盛出。",
+        "下蒜末和胡萝卜片，中火炒 3 分钟至变软。",
+        "倒回肉片，加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "清炒西兰花",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 12,
+      "summary": "翠绿爽口，保留营养。",
+      "ingredients": [
+        {"name": "西兰花", "amount": "1 颗", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "西兰花掰小朵，沸水加少许盐焯 1 分钟，捞出沥干。",
+        "热锅倒油爆香蒜末。",
+        "下西兰花大火快炒，加盐调味出锅。"
+      ]
+    },
+    {
+      "name": "韭菜炒鸡蛋",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 12,
+      "summary": "韭香浓郁，快手家常。",
+      "ingredients": [
+        {"name": "韭菜", "amount": "1 把", "essential": true},
+        {"name": "鸡蛋", "amount": "3 个", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "韭菜洗净切段，鸡蛋打散。",
+        "热锅倒油，倒蛋液炒散盛出。",
+        "下韭菜大火快炒 30 秒，倒回鸡蛋，加盐炒匀立刻出锅。"
+      ]
+    },
+    {
+      "name": "白菜炖粉条",
+      "cuisine": "东北菜",
+      "difficulty": "中等",
+      "minutes": 30,
+      "summary": "热乎一锅，冬天的味道。",
+      "ingredients": [
+        {"name": "白菜", "amount": "半颗", "essential": true},
+        {"name": "粉条", "amount": "1 把", "essential": true},
+        {"name": "猪肉", "amount": "150 克", "essential": false},
+        {"name": "葱", "amount": "1 根", "essential": false},
+        {"name": "生抽", "amount": "2 勺", "essential": false}
+      ],
+      "steps": [
+        "粉条温水泡软；白菜切块，猪肉切片。",
+        "热锅倒油，下肉片和葱段炒香。",
+        "下白菜翻炒，加生抽和一碗水煮开。",
+        "放粉条转小火炖 10 分钟，加盐收汁出锅。"
+      ]
+    },
+    {
+      "name": "冬瓜排骨汤",
+      "cuisine": "家常",
+      "difficulty": "稍难",
+      "minutes": 60,
+      "summary": "清淡解腻，汤鲜。",
+      "ingredients": [
+        {"name": "冬瓜", "amount": "500 克", "essential": true},
+        {"name": "排骨", "amount": "500 克", "essential": true},
+        {"name": "姜", "amount": "3 片", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "排骨冷水下锅焯水，撇沫捞出洗净。",
+        "排骨加姜片和足量清水，大火煮开转小火炖 40 分钟。",
+        "冬瓜去皮切块，下锅再炖 15 分钟。",
+        "加盐调味即可。"
+      ]
+    },
+    {
+      "name": "香菇炒油菜",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "菌菇香气配脆嫩油菜。",
+      "ingredients": [
+        {"name": "香菇", "amount": "6 朵", "essential": true},
+        {"name": "油菜", "amount": "300 克", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false},
+        {"name": "蚝油", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "香菇切片，油菜洗净对半切。",
+        "热锅倒油爆香蒜末，下香菇炒软。",
+        "加油菜大火炒 1 分钟，加蚝油和盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "蒸鸡蛋羹",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "嫩滑如布丁，适合老人小孩。",
+      "ingredients": [
+        {"name": "鸡蛋", "amount": "2 个", "essential": true},
+        {"name": "温水", "amount": "150 毫升", "essential": true},
+        {"name": "香油", "amount": "几滴", "essential": false},
+        {"name": "生抽", "amount": "半勺", "essential": false}
+      ],
+      "steps": [
+        "鸡蛋打散，加 1.5 倍温水搅匀，撇去浮沫。",
+        "盖保鲜膜并扎几个小孔，水开后中小火蒸 10 分钟。",
+        "取出淋香油和生抽即可。"
+      ]
+    },
+    {
+      "name": "蒜蓉菠菜",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 10,
+      "summary": "补铁快手菜。",
+      "ingredients": [
+        {"name": "菠菜", "amount": "400 克", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": true},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "菠菜洗净，沸水焯 20 秒捞出过凉水，挤干。",
+        "热锅倒油爆香蒜末。",
+        "下菠菜大火快炒，加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "木须肉",
+      "cuisine": "家常",
+      "difficulty": "中等",
+      "minutes": 25,
+      "summary": "木耳黄瓜鸡蛋肉片同炒。",
+      "ingredients": [
+        {"name": "木耳", "amount": "1 小把", "essential": true},
+        {"name": "鸡蛋", "amount": "2 个", "essential": true},
+        {"name": "黄瓜", "amount": "1 根", "essential": true},
+        {"name": "猪肉", "amount": "150 克", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false}
+      ],
+      "steps": [
+        "木耳泡发撕小朵，黄瓜切片，猪肉切片。",
+        "热锅倒油炒散鸡蛋盛出。",
+        "下肉片炒变色，加葱段、木耳和黄瓜片炒 2 分钟。",
+        "倒回鸡蛋，加生抽和盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "手撕包菜",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "香辣脆爽，干锅风味。",
+      "ingredients": [
+        {"name": "包菜", "amount": "半颗", "essential": true},
+        {"name": "干辣椒", "amount": "3 个", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": true},
+        {"name": "醋", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "包菜手撕成片，洗净沥干。",
+        "热锅倒油，下干辣椒和蒜末爆香。",
+        "大火下包菜快炒 2 分钟，沿锅边淋醋。",
+        "加盐和生抽炒匀出锅。"
+      ]
+    },
+    {
+      "name": "蛋炒饭",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "隔夜饭的最佳归宿。",
+      "ingredients": [
+        {"name": "米饭", "amount": "2 碗", "essential": true},
+        {"name": "鸡蛋", "amount": "2 个", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false},
+        {"name": "胡萝卜", "amount": "半根", "essential": false},
+        {"name": "盐", "amount": "适量", "essential": false}
+      ],
+      "steps": [
+        "米饭用隔夜饭打散；胡萝卜切小丁，葱切葱花。",
+        "热锅倒油炒散鸡蛋盛出。",
+        "下胡萝卜丁炒软，倒米饭大火翻炒至粒粒分明。",
+        "加鸡蛋、盐和葱花炒匀出锅。"
+      ]
+    },
+    {
+      "name": "蒜苔炒肉",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 20,
+      "summary": "蒜苔清甜脆嫩，配肉丝下饭。",
+      "ingredients": [
+        {"name": "蒜苔", "amount": "200 克", "essential": true},
+        {"name": "猪肉", "amount": "150 克", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false},
+        {"name": "生抽", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "蒜苔掐去老根，切成 3 厘米段；猪肉切丝，用生抽腌 10 分钟。",
+        "热锅倒油，下肉丝滑炒至变色盛出。",
+        "锅里下蒜末爆香，倒蒜苔大火炒 2 分钟。",
+        "倒回肉丝，加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "干煸四季豆",
+      "cuisine": "川菜",
+      "difficulty": "中等",
+      "minutes": 22,
+      "summary": "四季豆外皮起皱，肉末香辣。",
+      "ingredients": [
+        {"name": "四季豆", "amount": "300 克", "essential": true},
+        {"name": "猪肉末", "amount": "100 克", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": false},
+        {"name": "干辣椒", "amount": "4 个", "essential": true}
+      ],
+      "steps": [
+        "四季豆去筋掰段，洗净彻底沥干。",
+        "热锅多放油，下四季豆中火煸 4 分钟至表皮起皱，盛出。",
+        "锅留底油，下肉末炒散，加蒜末和干辣椒炒香。",
+        "倒回四季豆，加生抽和盐翻炒 1 分钟出锅。"
+      ]
+    },
+    {
+      "name": "地三鲜",
+      "cuisine": "东北菜",
+      "difficulty": "中等",
+      "minutes": 25,
+      "summary": "土豆茄子青椒同烧，酱香浓郁。",
+      "ingredients": [
+        {"name": "土豆", "amount": "2 个", "essential": true},
+        {"name": "茄子", "amount": "1 根", "essential": true},
+        {"name": "青椒", "amount": "1 个", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": false},
+        {"name": "生抽", "amount": "2 勺", "essential": false}
+      ],
+      "steps": [
+        "土豆、茄子、青椒都切滚刀块；茄子拍薄淀粉。",
+        "热锅多油，分别把土豆和茄子煎炸至金黄盛出。",
+        "锅留底油爆香蒜末，加生抽、糖和半碗水煮开。",
+        "倒入土豆、茄子、青椒，中火烧 3 分钟。",
+        "收汁后加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "可乐鸡翅",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 30,
+      "summary": "咸甜油亮，孩子最爱。",
+      "ingredients": [
+        {"name": "鸡翅", "amount": "8 个", "essential": true},
+        {"name": "可乐", "amount": "1 罐", "essential": true},
+        {"name": "姜", "amount": "2 片", "essential": false},
+        {"name": "生抽", "amount": "2 勺", "essential": false}
+      ],
+      "steps": [
+        "鸡翅两面各划两刀，冷水下锅加姜片焯水，捞出沥干。",
+        "热锅倒少许油，下鸡翅煎至两面金黄。",
+        "倒入可乐没过鸡翅，加生抽，大火煮开转中小火焖 15 分钟。",
+        "开盖大火收汁至浓稠裹住鸡翅即可。"
+      ]
+    },
+    {
+      "name": "香菇滑鸡",
+      "cuisine": "粤菜",
+      "difficulty": "中等",
+      "minutes": 30,
+      "summary": "鸡肉嫩滑，香菇吸满汤汁。",
+      "ingredients": [
+        {"name": "鸡肉", "amount": "300 克", "essential": true},
+        {"name": "香菇", "amount": "6 朵", "essential": true},
+        {"name": "姜", "amount": "2 片", "essential": false},
+        {"name": "蚝油", "amount": "1 勺", "essential": false}
+      ],
+      "steps": [
+        "鸡肉切块，加蚝油、淀粉和少许油抓匀腌 15 分钟；香菇泡软切块。",
+        "热锅倒油，下姜片和鸡块煎至变色。",
+        "加香菇翻炒，倒小半碗水，盖盖中小火焖 8 分钟。",
+        "加盐调味，大火收汁出锅。"
+      ]
+    },
+    {
+      "name": "黄瓜炒鸡蛋",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 12,
+      "summary": "清爽快手，夏天开胃。",
+      "ingredients": [
+        {"name": "黄瓜", "amount": "1 根", "essential": true},
+        {"name": "鸡蛋", "amount": "3 个", "essential": true},
+        {"name": "蒜", "amount": "2 瓣", "essential": false}
+      ],
+      "steps": [
+        "黄瓜斜刀切片，鸡蛋打散加少许盐。",
+        "热锅倒油，倒蛋液炒至凝固盛出。",
+        "下蒜末爆香，倒黄瓜片大火炒 1 分钟。",
+        "倒回鸡蛋，加盐炒匀出锅。"
+      ]
+    },
+    {
+      "name": "紫菜蛋花汤",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 10,
+      "summary": "三分钟出锅的清淡汤。",
+      "ingredients": [
+        {"name": "紫菜", "amount": "1 小把", "essential": true},
+        {"name": "鸡蛋", "amount": "2 个", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false},
+        {"name": "香油", "amount": "几滴", "essential": false}
+      ],
+      "steps": [
+        "紫菜撕小块放碗底；鸡蛋打散。",
+        "锅中水烧开，转小火，缓缓淋入蛋液并搅出蛋花。",
+        "加盐调味，冲入紫菜碗中，滴香油、撒葱花即可。"
+      ]
+    },
+    {
+      "name": "番茄鸡蛋汤",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 15,
+      "summary": "酸甜开胃，饭前一碗。",
+      "ingredients": [
+        {"name": "番茄", "amount": "2 个", "essential": true},
+        {"name": "鸡蛋", "amount": "2 个", "essential": true},
+        {"name": "葱", "amount": "1 根", "essential": false}
+      ],
+      "steps": [
+        "番茄切块，鸡蛋打散。",
+        "热锅少油，下番茄炒出汁，加 3 碗水煮开。",
+        "转小火淋入蛋液，搅出蛋花。",
+        "加盐调味，撒葱花出锅。"
+      ]
+    },
+    {
+      "name": "蚝油生菜",
+      "cuisine": "粤菜",
+      "difficulty": "简单",
+      "minutes": 10,
+      "summary": "脆嫩碧绿，蚝油提鲜。",
+      "ingredients": [
+        {"name": "生菜", "amount": "1 颗", "essential": true},
+        {"name": "蚝油", "amount": "1 勺", "essential": true},
+        {"name": "蒜", "amount": "3 瓣", "essential": false}
+      ],
+      "steps": [
+        "生菜掰开洗净，沸水加少许盐和油焯 20 秒，捞出摆盘。",
+        "热锅倒油爆香蒜末，加蚝油和 2 勺水煮开。",
+        "把酱汁淋在生菜上即可。"
+      ]
+    },
+    {
+      "name": "白菜豆腐汤",
+      "cuisine": "家常",
+      "difficulty": "简单",
+      "minutes": 20,
+      "summary": "清淡暖胃，老少皆宜。",
+      "ingredients": [
+        {"name": "白菜", "amount": "半颗", "essential": true},
+        {"name": "豆腐", "amount": "1 块", "essential": true},
+        {"name": "姜", "amount": "2 片", "essential": false},
+        {"name": "葱", "amount": "1 根", "essential": false}
+      ],
+      "steps": [
+        "白菜切块，豆腐切块，姜切丝。",
+        "热锅少油下姜丝炒香，加白菜翻炒 1 分钟。",
+        "加 4 碗水煮开，下豆腐块中火煮 8 分钟。",
+        "加盐调味，撒葱花出锅。"
+      ]
+    }
+  ]
+}

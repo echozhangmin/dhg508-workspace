@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>看图识菜谱</title>
+<style>
+  :root { --line: #e5e3dd; --ink: #24211c; --muted: #7a746a; --brand: #c25a2b; --good: #2f7d4f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         color: var(--ink); background: #faf8f4; line-height: 1.6; }
+  header { padding: 28px 20px 8px; text-align: center; }
+  h1 { margin: 0; font-size: 26px; }
+  header p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+  main { max-width: 720px; margin: 0 auto; padding: 16px 20px 60px; }
+  .drop { border: 2px dashed #cfc9bd; border-radius: 14px; background: #fff; padding: 26px 16px;
+          text-align: center; color: var(--muted); cursor: pointer; transition: .15s; }
+  .drop.on { border-color: var(--brand); background: #fff7f2; color: var(--brand); }
+  .drop strong { color: var(--ink); }
+  #preview { display: none; width: 100%; max-height: 320px; object-fit: contain; border-radius: 12px;
+             margin-top: 14px; background: #000; }
+  button { width: 100%; margin-top: 14px; padding: 13px; font-size: 16px; font-weight: 600;
+           color: #fff; background: var(--brand); border: 0; border-radius: 12px; cursor: pointer; }
+  button:disabled { background: #c9c3b8; cursor: not-allowed; }
+  .status { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; min-height: 20px; }
+  .error { background: #fdecea; color: #b3261e; border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .chip { background: #eef6ee; color: var(--good); border-radius: 999px; padding: 4px 12px; font-size: 14px; }
+  .chip.miss { background: #f1efe9; color: var(--muted); }
+  h2 { font-size: 18px; margin: 26px 0 6px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-top: 14px; }
+  .card-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .card-head h3 { margin: 0; font-size: 18px; }
+  .badge { font-size: 12px; border-radius: 999px; padding: 2px 10px; }
+  .badge.db { background: #eaf3ea; color: var(--good); }
+  .badge.model { background: #fff0e6; color: var(--brand); }
+  .meta { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .card ul, .card ol { margin: 6px 0 0; padding-left: 22px; }
+  .card li { margin: 3px 0; }
+  .muted { color: var(--muted); font-size: 13px; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 34px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🍳 看图识菜谱</h1>
+  <p>拍一张食材照片，用 DeepSeek 识别，再对照本地家常菜谱库给出 5 个做法</p>
+</header>
+<main>
+  <div class="drop" id="drop">
+    <strong>点这里拍照或选择照片</strong><br>
+    <span class="muted">也可以把照片拖进来</span>
+  </div>
+  <input type="file" id="file" accept="image/*" capture="environment" hidden>
+  <img id="preview" alt="预览">
+  <button id="go" disabled>生成菜谱</button>
+  <div class="status" id="status"></div>
+  <div id="result"></div>
+  <footer id="footer"></footer>
+</main>
+<script>
+const drop = document.getElementById('drop');
+const fileInput = document.getElementById('file');
+const preview = document.getElementById('preview');
+const go = document.getElementById('go');
+const statusEl = document.getElementById('status');
+const result = document.getElementById('result');
+const footer = document.getElementById('footer');
+let photo = null;
+
+fetch('/api/health').then(r => r.json()).then(h => {
+  footer.textContent = `model: ${h.model} · 菜谱库: ${h.recipes} 道 · API key: ${h.key ? '已设置' : '未设置'}`;
+}).catch(() => {});
+
+function choose(file) {
+  if (!file) return;
+  photo = file;
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = 'block';
+  go.disabled = false;
+  statusEl.textContent = '';
+  result.innerHTML = '';
+  drop.classList.remove('on');
+}
+
+drop.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', () => choose(fileInput.files[0]));
+['dragover', 'dragenter'].forEach(e => drop.addEventListener(e, ev => { ev.preventDefault(); drop.classList.add('on'); }));
+['dragleave', 'drop'].forEach(e => drop.addEventListener(e, ev => { ev.preventDefault(); drop.classList.remove('on'); }));
+drop.addEventListener('drop', ev => choose(ev.dataTransfer.files[0]));
+
+go.addEventListener('click', async () => {
+  if (!photo) return;
+  go.disabled = true;
+  statusEl.textContent = 'DeepSeek 正在看图并设计菜谱…（约 10–30 秒）';
+  result.innerHTML = '';
+  try {
+    const resp = await fetch('/api/recipes', {
+      method: 'POST',
+      headers: { 'Content-Type': photo.type || 'image/jpeg' },
+      body: photo,
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || `服务器返回 ${resp.status}`);
+    render(data);
+    statusEl.textContent = '';
+  } catch (err) {
+    result.innerHTML = `<div class="error">${err.message}</div>`;
+    statusEl.textContent = '';
+  } finally {
+    go.disabled = false;
+  }
+});
+
+function render(data) {
+  const ings = data.ingredients || [];
+  const matched = new Set(data.matched || []);
+  let html = '';
+  if (ings.length) {
+    html += '<h2>识别到的食材</h2><div class="chips">' +
+      ings.map(n => `<span class="chip${matched.has(n) ? '' : ' miss'}">${n}</span>`).join('') +
+      '</div><p class="muted">绿色=菜谱库里有对应记录</p>';
+  } else {
+    html += '<div class="error">没有识别到食材，换一张更清晰的照片试试。</div>';
+  }
+  if (data.db_matches && data.db_matches.length) {
+    html += `<p class="muted">菜谱库匹配到：${data.db_matches.join('、')}</p>`;
+  }
+  (data.recipes || []).forEach(r => {
+    const cls = r.source === '库中菜谱' ? 'db' : 'model';
+    html += `<div class="card">
+      <div class="card-head"><h3>${r.name || '菜谱'}</h3>
+        <span class="badge ${cls}">${r.source || '模型补充'}</span></div>
+      <div class="meta">${r.difficulty || ''} · 约 ${r.minutes || '?'} 分钟${r.summary ? ' · ' + r.summary : ''}</div>
+      <strong>食材</strong>
+      <ul>${(r.ingredients || []).map(i => `<li>${i}</li>`).join('')}</ul>
+      <strong>步骤</strong>
+      <ol>${(r.steps || []).map(s => `<li>${s}</li>`).join('')}</ol>
+    </div>`;
+  });
+  result.innerHTML = html;
+}
+</script>
+</body>
+</html>
