@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北宋赶考记 · 嘉祐二年 — Week 8 历史模拟 · Presentation</title>
+<style>
+  :root {
+    --paper: #f7f2e7;
+    --ink: #2b2620;
+    --faint: #6b6152;
+    --line: #d8cfba;
+    --seal: #9e3b2c;
+    --ev: #4a6741;      /* evidenced */
+    --inf: #a06a1f;     /* inferred  */
+    --inv: #9e3b2c;     /* invented  */
+    --late: #7a7265;    /* 借后世语  */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+    line-height: 1.65;
+  }
+  #deck { height: 100%; display: flex; align-items: center; justify-content: center; }
+  .slide {
+    display: none;
+    width: min(960px, 92vw);
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 44px 56px 40px;
+    border-top: 6px solid var(--seal);
+    background:
+      radial-gradient(ellipse at top right, rgba(158,59,44,.04), transparent 60%),
+      var(--paper);
+  }
+  .slide.active { display: block; }
+  h1 { font-size: 2.35em; margin: .2em 0 .1em; letter-spacing: .04em; }
+  h2 { font-size: 1.55em; margin: 0 0 .6em; border-bottom: 2px solid var(--line); padding-bottom: .25em; }
+  h2 .no { color: var(--seal); margin-right: .4em; }
+  p, li { font-size: 1.02em; }
+  .sub { color: var(--faint); font-size: .95em; }
+  ul { padding-left: 1.3em; margin: .4em 0; }
+  li { margin: .28em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .86em; margin: .5em 0; }
+  th, td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; vertical-align: top; }
+  th { background: #efe7d4; font-weight: 600; }
+  .tag { display: inline-block; padding: 0 .55em; border-radius: .8em; font-size: .78em;
+         color: #fff; white-space: nowrap; }
+  .tag.ev  { background: var(--ev); }
+  .tag.inf { background: var(--inf); }
+  .tag.inv { background: var(--inv); }
+  .tag.late{ background: var(--late); }
+  .big { font-size: 1.28em; }
+  .quote { border-left: 4px solid var(--seal); padding: .35em 1em; margin: .6em 0;
+           background: rgba(158,59,44,.05); }
+  .seal-line { color: var(--seal); }
+  footer#hud {
+    position: fixed; bottom: 14px; right: 20px; color: var(--faint); font-size: .85em;
+    user-select: none;
+  }
+  footer#hud b { color: var(--seal); font-size: 1.1em; }
+  .hint { position: fixed; bottom: 14px; left: 20px; color: var(--faint); font-size: .8em; }
+  @media print {
+    body { background: #fff; }
+    #deck { display: block; height: auto; }
+    .slide { display: block !important; page-break-after: always;
+             border: 1px solid var(--line); margin: 10px auto; max-height: none; }
+    footer#hud, .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="deck">
+
+  <section class="slide">
+    <p class="sub">DHG508 · Week 8 · 历史模拟</p>
+    <h1>北宋赶考记<span class="seal-line"> · </span>嘉祐二年</h1>
+    <p class="big">临川举子的三十日汴京之行——单文件 HTML 科举模拟</p>
+    <p class="sub">在线玩：echozhangmin.github.io/songgame　·　仓库：github.com/echozhangmin/songgame　·　研究档案：projects/songgame/</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">一</span>情境</h2>
+    <p class="big">正月初十，临川启程；三十日后，汴京省试、殿试。</p>
+    <p class="sub">十二幕：家塾→长亭→驿站→山道→汴河→虹桥→城门→酒楼→书库→号舍→放榜；
+    管理智力·精力·人缘·盘缠，每日 4 点行动。主角是临川（抚州）人——王安石同乡。</p>
+    <div class="quote">历史教训：嘉祐二年是"最豪华的一榜"，但豪华背后是<b>一整套制度机器</b>——
+    解试资格、赴京路程、投状手续、糊名誊录的三场、殿试定档、特奏名兜底。
+    <b>普通举子要穿过整部机器，才站得到榜前。</b></div>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">二</span>实机画面</h2>
+    <img src="screenshot_game.jpg" alt="北宋赶考记 实机画面" style="width:100%; border:1px solid var(--line); box-shadow:0 6px 24px rgba(90,75,45,.14)">
+    <p class="sub">在线版：echozhangmin.github.io/songgame（手机可玩，进度存 localStorage）——课上可现场开一局。</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">三</span>为什么不是电影</h2>
+    <p class="big">电影让你<b>看</b>一个举子；模拟让你<b>当</b>一个举子。</p>
+    <ul>
+      <li><b>取舍</b>——每日 4 点行动，温书／歇息／交游／用度互相挤占；赶路日只剩 2 点，
+        必有一样放下；入夜结算，当天没顾上的那一项减一分。</li>
+      <li><b>制度体感</b>——糊名誊录已行，"打听主司偏好"只得传闻：匿名评卷如何塑造举子行为，
+        是规则让你自己撞上的。</li>
+      <li><b>失败是系统的</b>——才／身／援／财任一归零即终止；180 局无头测试：55% 答题水平
+        多落同进士／特奏名，85% 多一甲。<b>落第是经营失败，可再来一局换策略。</b></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">四</span>制度机器 · 54 条词条，两档出处</h2>
+    <p>正文小词皆可点开：<b>「原文」</b>（确有原文才加引号）／<b>「所述」</b>（只到书名篇名，如实降档）。</p>
+    <ul>
+      <li><b>锁院</b>——欧阳修《归田录》所述：嘉祐二年欧、韩绛同知贡举，梅尧臣为小试官，
+        锁院五十日唱和成集。</li>
+      <li><b>糊名／誊录</b>——太宗淳化三年殿试始行糊名；大中祥符八年置誊录院（《宋史·选举志一》）。</li>
+    </ul>
+    <p class="sub">出处的等级就是诚实的等级：查到哪一级，就标到哪一级。</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">五</span>人物：在场与缺席</h2>
+    <p><b>在场</b>（每人一次，台词化用史料）：欧阳修 · 梅尧臣 · 司马光 · 苏洵 · 苏轼 · 苏辙 ·
+    曾巩 · 曾布 · 程颢 · 张载 · 吕惠卿</p>
+    <p><b>有意的缺席</b>：黄庭坚（12 岁）、米芾（6 岁）——这一科他们还在家乡读书。</p>
+    <p><b>为何 scripted 而非 agentic</b>：台词可核查；守住"人物不能说出他不可能知道的历史"；
+    固定次序＝嘉祐二年的"可遇性"。agentic 升级列入 questions.md。</p>
+    <p class="sub">学术依托：Rong 2019（《Diogenes》，开放获取）——1057 主考、点检官与及第者交游研究。</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">六</span>为什么是这一年：1057 留下的纸</h2>
+    <table>
+      <tr><th>证据层</th><th>证据</th><th>分级</th></tr>
+      <tr><td>考官在场</td><td>欧阳修知贡举、梅尧臣点检试卷；与韩绛同知贡举、锁院五十日——欧阳修《归田录》所述</td><td>所述级</td></tr>
+      <tr><td>考官生态</td><td>锁院唱和成集，声望反哺梅尧臣——Rong 2019（《Diogenes》，开放获取）所考</td><td>摘要级</td></tr>
+      <tr><td>试卷掌故</td><td>苏轼《刑赏忠厚之至论》即本年省试论题；"疑为曾巩作、置之第二"掌故原文待核</td><td>题实／掌故待核</td></tr>
+      <tr><td>谢启</td><td>苏轼及第后上考官谢启，映照"意气相投"（elective affinity）——Rong 2019 核心材料</td><td>摘要级</td></tr>
+      <tr><td>同榜名单</td><td>苏轼、苏辙、曾巩、曾布、程颢、张载、吕惠卿同年登第——诸人本传</td><td>evidenced</td></tr>
+      <tr><td>制度就位</td><td>糊名（992）／誊录（1015）／公卷已罢／御试三题"祖宗法"——《宋史·选举志一》原文（已核）</td><td>原文级</td></tr>
+    </table>
+    <p class="sub">换任何一年，凑不齐这四类纸——<b>所以把主角放在这一年。</b></p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">七</span>证据分级表（节选）</h2>
+    <table>
+      <tr><th>部分</th><th>分级</th><th>依据</th></tr>
+      <tr><td>时间骨架：秋取解→冬集礼部→春考试</td><td><span class="tag ev">evidenced</span></td><td>《宋史·选举志一》原文，逐字吻合</td></tr>
+      <tr><td>省试三场诗赋／论／策；殿试三题定等第</td><td><span class="tag ev">evidenced</span></td><td>同上原文："论第二场"；御试祖宗法三题</td></tr>
+      <tr><td>御街、州桥、新宋门、汴河；投状、特奏名</td><td><span class="tag ev">evidenced</span></td><td>《东京梦华录》《宋会要》《宋史·选举志》所述</td></tr>
+      <tr><td>临川→汴京路线与 30 日节奏；"打听偏好"只得传闻</td><td><span class="tag inf">inferred</span></td><td>漕路地理＋《清明上河图》虹桥；由糊名誊录推出；驿程未核（questions.md）</td></tr>
+      <tr><td>主角其人；4 行动点／属性衰减／字数判诗／行卷考运</td><td><span class="tag inv">invented</span></td><td>可玩性抽象（行卷加成：公卷已罢，数值属游戏化）</td></tr>
+      <tr><td>"一甲／二甲"、号舍、程仪</td><td><span class="tag late">借后世语</span></td><td>词条表自注今古差异</td></tr>
+    </table>
+    <p class="sub">全表 19 行见 assignments/week-08/answer.md。</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">八</span>一次校证：这游戏符合省试逻辑吗</h2>
+    <p class="big">带着问题核《宋史·选举志一》原文——三处当日修复，两处意外坐实。</p>
+    <table>
+      <tr><th>疑点</th><th>原文</th><th>处置</th></tr>
+      <tr><td>第二场"经义"</td><td>专场经义系熙宁后之制；"诗赋为第一场，<b>论</b>第二场，策第三场"</td><td>改"论"——玩家考的正是苏轼《刑赏忠厚之至论》那一场</td></tr>
+      <tr><td>特奏名结局</td><td>须"积其举数与年岁"，首举青年不与</td><td>结局页加自注，如实声明</td></tr>
+      <tr><td>行卷"考运加成"</td><td>封弥誊录后"自是不复有公卷"</td><td>词条补注；标 invented</td></tr>
+    </table>
+    <p class="sub">利好：殿试 3 题恰合御试"祖宗法"三题；时间骨架与原文逐字吻合。
+    疑问→原文→修复→推送（fb5e3de）：<b>证据表是工作方式，不是附件。</b></p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">九</span>工具 · AI · 人工 · 验证</h2>
+    <table>
+      <tr><th>谁</th><th>做了什么</th></tr>
+      <tr><td>AI（开发）</td><td>单文件构建、题库整合、词条两档出处、文案初稿、无头测试脚本</td></tr>
+      <tr><td>AI（检索）</td><td>OpenAlex 12 组（$0.013）→ 20 条候选＋检索日志；落空查询如实记录；Google Scholar 人工查（不自动化）</td></tr>
+      <tr><td>人</td><td>出题方向、数值与取舍拍板（README"已知取舍"）、实测游玩、读原文核校</td></tr>
+    </table>
+    <p><b>验证不靠眼睛</b>：`osascript` 无头跑 180 局 × 3 档答题率；题诗判定独立用例；
+    证据逐条分级，摘要级／题名级分开，不冒充读过全文。</p>
+  </section>
+
+  <section class="slide">
+    <h2><span class="no">十</span>一个真实困难 · 与结语</h2>
+    <p><b>诗的好坏只由字数决定</b>——"四句、每句字数一样"即上品：</p>
+    <div class="quote">今天真高兴／我们去喝酒<br>明天再读书／一定考得好</div>
+    <p>——拿上品、得程仪。真实规范是八韵律赋（许结 2003），机器判格律不可靠，于是退到一条
+    <b>可验证的硬规则</b>，对仗只作评语——"做到哪条边界"的诚实声明，是否收紧待拍板。</p>
+    <p class="sub">其他困难：术语今古错位（词条自曝）／赴京路线史料薄（转人工检索）／平衡待调参——
+    未解问题俱在 questions.md，解决一条划掉一条。</p>
+    <div class="quote big">"把主角放在这一年，你才能在汴京的酒楼里，真的遇见这些人。"</div>
+    <p class="sub">玩：echozhangmin.github.io/songgame　·　仓库：github.com/echozhangmin/songgame　·
+    档案：projects/songgame/　·　答卷：assignments/week-08/answer.md　·　⌘P 导出 PDF</p>
+  </section>
+
+</div>
+<div class="hint">← → 方向键 / 空格翻页</div>
+<footer id="hud"><b id="cur">1</b> / <span id="tot">11</span></footer>
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = 0;
+  const show = n => {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    document.getElementById('cur').textContent = i + 1;
+  };
+  document.getElementById('tot').textContent = slides.length;
+  addEventListener('keydown', e => {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  addEventListener('click', e => {
+    if (e.clientX > innerWidth / 2) show(i + 1); else show(i - 1);
+  });
+  show(0);
+</script>
+</body>
+</html>
